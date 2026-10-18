@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026年9月27日のミーティング議事録</title>
+<style>
+  :root{
+    --ink:#1e2733;
+    --ink-2:#3b4757;
+    --muted:#6b7a8d;
+    --line:#e3e8ef;
+    --line-strong:#cfd8e3;
+    --accent:#1f4e79;
+    --accent-2:#2f6ea8;
+    --accent-soft:#eef4fa;
+    --quote:#f4f8fc;
+    --th:#f0f5fa;
+    --warn:#8a5a00;
+    --warn-bg:#fff8e8;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(24,44,72,.05), 0 8px 24px rgba(24,44,72,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",YuGothic,Meiryo,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.95;
+    -webkit-font-smoothing:antialiased;
+    text-underline-offset:3px;
+  }
+
+  /* ---------- layout ---------- */
+  .app{
+    max-width:1420px;
+    margin:0 auto;
+    padding:26px 24px 80px;
+    display:grid;
+    grid-template-columns:310px minmax(0,1fr);
+    gap:30px;
+    align-items:start;
+  }
+  .sidebar{
+    position:sticky;
+    top:22px;
+    max-height:calc(100vh - 44px);
+    overflow:auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:18px 16px;
+  }
+  .sidebar::-webkit-scrollbar{width:8px}
+  .sidebar::-webkit-scrollbar-thumb{background:#d7dee8;border-radius:8px}
+
+  /* ---------- header ---------- */
+  .page-head{
+    background:linear-gradient(135deg,#1f4e79 0%,#2f6ea8 60%,#3f86c4 100%);
+    color:#fff;
+    border-radius:var(--radius);
+    padding:26px 28px 22px;
+    box-shadow:var(--shadow);
+    margin-bottom:24px;
+  }
+  .page-head .kicker{
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    opacity:.85;
+    margin:0 0 8px;
+  }
+  .page-head h1{
+    margin:0 0 10px;
+    font-size:26px;
+    line-height:1.5;
+    letter-spacing:.01em;
+  }
+  .page-head .lead{
+    margin:0 0 14px;
+    font-size:14px;
+    line-height:1.85;
+    color:#dfeaf5;
+    max-width:78ch;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:999px;
+    padding:4px 12px;
+    font-size:12.5px;
+  }
+
+  /* ---------- toolbar ---------- */
+  .toolbar{
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    margin:0 0 18px;
+  }
+  button,.btn{
+    font-family:inherit;
+    font-size:13px;
+    color:var(--ink-2);
+    background:#fff;
+    border:1px solid var(--line-strong);
+    border-radius:9px;
+    padding:7px 13px;
+    cursor:pointer;
+    line-height:1.4;
+    transition:.15s ease;
+  }
+  button:hover,.btn:hover{border-color:var(--accent-2);color:var(--accent);background:var(--accent-soft)}
+  button:focus-visible,.btn:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+
+  /* ---------- search ---------- */
+  .search-wrap{margin:0 0 14px}
+  .search-wrap label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}
+  #search{
+    width:100%;
+    font-family:inherit;font-size:13.5px;color:var(--ink);
+    padding:9px 11px;
+    border:1px solid var(--line-strong);
+    border-radius:9px;
+    background:#fbfcfe;
+  }
+  #search:focus{outline:none;border-color:var(--accent-2);background:#fff;box-shadow:0 0 0 3px rgba(47,110,168,.12)}
+  .search-info{font-size:12px;color:var(--muted);margin:7px 0 0;min-height:1.2em}
+
+  /* ---------- sidebar toc ---------- */
+  .toc-title{
+    font-size:12px;letter-spacing:.1em;color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:13px;margin:14px 0 8px;
+  }
+  #toc{display:flex;flex-direction:column;gap:6px}
+  #toc a.top{
+    display:block;
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink-2);
+    text-decoration:none;
+    padding:8px 10px;
+    border-radius:8px;
+    border-left:3px solid transparent;
+    line-height:1.6;
+    word-break:break-word;
+  }
+  #toc a.top:hover{background:var(--accent-soft);color:var(--accent)}
+  #toc a.top.active{background:var(--accent-soft);color:var(--accent);border-left-color:var(--accent)}
+
+  /* ---------- meeting card ---------- */
+  .meeting{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin:0 0 24px;
+    overflow:hidden;
+    scroll-margin-top:24px;
+  }
+  .meeting-head{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:18px 22px;
+    background:linear-gradient(180deg,#fbfcfe,#f5f8fb);
+    border-bottom:1px solid var(--line);
+  }
+  .meeting-head .toggle{
+    flex:0 0 auto;
+    width:30px;height:30px;
+    display:grid;place-items:center;
+    padding:0;
+    border-radius:8px;
+    font-size:12px;
+    color:var(--accent);
+    background:#fff;
+  }
+  .meeting-head .toggle::before{content:"▾"}
+  .meeting.collapsed .meeting-head .toggle::before{content:"▸"}
+  .meeting-head-text{flex:1 1 auto;min-width:0}
+  .meeting-head h2{
+    margin:0;
+    font-size:19px;
+    line-height:1.6;
+    letter-spacing:.01em;
+    color:var(--accent);
+  }
+  .meeting-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+  .tag{
+    font-size:11.5px;
+    background:#fff;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    padding:3px 11px;
+    color:var(--ink-2);
+  }
+  .tag.date{background:var(--accent-soft);border-color:#cfe0f0;color:var(--accent);font-weight:700}
+  .tag.brass{background:var(--warn-bg);border-color:#f0dfb8;color:var(--warn)}
+  .meeting-body{padding:8px 26px 26px}
+  .meeting.collapsed .meeting-body{display:none}
+
+  /* ---------- markdown typography ---------- */
+  .md h1,.md h2,.md h3,.md h4{line-height:1.6;scroll-margin-top:96px}
+  .md h1{font-size:22px;color:var(--accent);margin:26px 0 12px}
+  .md h2{
+    font-size:18px;color:var(--ink);
+    margin:30px 0 12px;
+    padding:0 0 8px 12px;
+    border-left:4px solid var(--accent-2);
+    border-bottom:1px solid var(--line);
+  }
+  .md h3{
+    font-size:16px;color:var(--accent);
+    margin:24px 0 10px;
+    padding:9px 13px;
+    background:var(--accent-soft);
+    border-radius:9px;
+    border-left:3px solid var(--accent);
+  }
+  .md h4{font-size:14.5px;color:var(--ink-2);margin:18px 0 8px}
+  .md h3 .num{opacity:.6;margin-right:6px}
+  .md p{margin:10px 0}
+  .md ul,.md ol{margin:10px 0;padding-left:1.5em}
+  .md li{margin:5px 0}
+  .md li::marker{color:var(--accent-2)}
+  .md strong{color:#12314f}
+  .md a{color:var(--accent-2)}
+  .md hr{border:none;border-top:1px dashed var(--line-strong);margin:26px 0}
+  .md blockquote{
+    margin:14px 0;
+    padding:14px 18px;
+    background:var(--quote);
+    border-left:4px solid var(--accent-2);
+    border-radius:0 10px 10px 0;
+    color:#17324c;
+    font-size:15.5px;
+  }
+  .md blockquote p{margin:0}
+  .md table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0;
+    font-size:14.5px;
+    background:#fff;
+    border:1px solid var(--line-strong);
+    border-radius:10px;
+    overflow:hidden;
+    display:table;
+  }
+  .md thead th{
+    background:var(--th);
+    color:var(--ink);
+    text-align:left;
+    font-size:13px;
+    letter-spacing:.03em;
+  }
+  .md th,.md td{
+    border:1px solid var(--line);
+    padding:10px 13px;
+    vertical-align:top;
+    line-height:1.85;
+  }
+  .md tbody tr:nth-child(even){background:#fafcfe}
+  .md code{background:#f1f4f8;padding:1px 5px;border-radius:5px;font-size:13px}
+  .md pre{background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto}
+  .md .note{
+    font-size:13.5px;
+    color:var(--muted);
+    margin:12px 0 0;
+    padding:9px 13px;
+    background:#fbfcfe;
+    border:1px dashed var(--line-strong);
+    border-radius:9px;
+  }
+  mark.hit{background:#ffe9a8;padding:0 2px;border-radius:3px}
+
+  /* ---------- append panel ---------- */
+  .append{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin:4px 0 24px;
+    overflow:hidden;
+  }
+  .append-head{
+    padding:15px 22px;
+    background:linear-gradient(180deg,#fbfcfe,#f5f8fb);
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+    font-weight:700;
+    color:var(--accent);
+    cursor:pointer;
+  }
+  .append-head span.sub{display:block;font-size:12.5px;font-weight:400;color:var(--muted);margin-top:3px}
+  .append-body{padding:18px 22px 22px;display:none}
+  .append.open .append-body{display:block}
+  .append textarea{
+    width:100%;
+    min-height:190px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans Mono CJK JP",monospace;
+    font-size:13px;
+    line-height:1.8;
+    color:var(--ink);
+    padding:12px 14px;
+    border:1px solid var(--line-strong);
+    border-radius:10px;
+    background:#fbfcfe;
+    resize:vertical;
+  }
+  .append textarea:focus{outline:none;border-color:var(--accent-2);background:#fff;box-shadow:0 0 0 3px rgba(47,110,168,.12)}
+  .append .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px;align-items:center}
+  .append .hint{font-size:12.5px;color:var(--muted);margin:10px 0 0;line-height:1.8}
+  .append .hint code{background:#f1f4f8;padding:1px 5px;border-radius:5px}
+  .preview-label{font-size:12px;color:var(--muted);margin:18px 0 6px;letter-spacing:.08em}
+  .preview{
+    border:1px dashed var(--line-strong);
+    border-radius:10px;
+    padding:6px 18px 16px;
+    background:#fff;
+    max-height:none;
+  }
+  .status{font-size:12.5px;margin:10px 0 0;min-height:1.2em;color:var(--accent)}
+  .status.err{color:#a33}
+
+  .empty{
+    background:var(--card);border:1px dashed var(--line-strong);border-radius:var(--radius);
+    padding:26px;color:var(--muted);text-align:center;font-size:14px;
+  }
+  .footnote{
+    color:var(--muted);
+    font-size:12.5px;
+    line-height:1.9;
+    margin:26px 2px 0;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .app{grid-template-columns:1fr;gap:18px;padding:18px 14px 60px}
+    .sidebar{position:static;max-height:none;order:2}
+    main{order:1}
+    .page-head h1{font-size:21px}
+    .meeting-body{padding:6px 16px 20px}
+    .meeting-head{padding:15px 15px}
+    .md table{display:block;overflow-x:auto;white-space:normal}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    @page{margin:14mm}
+    body{background:#fff;font-size:11pt;line-height:1.7}
+    .app{display:block;max-width:none;padding:0}
+    .sidebar,.toolbar,.append,.page-head .lead,.footnote{display:none !important}
+    .page-head{background:#fff !important;color:#000;padding:0 0 10px;border-bottom:2px solid #1f4e79;border-radius:0;box-shadow:none}
+    .page-head h1{font-size:16pt;color:#1f4e79}
+    .page-head .kicker{color:#556}
+    .chip{background:#eef3f9;border-color:#cdd8e4;color:#1f4e79}
+    .meeting{box-shadow:none;border:none;page-break-inside:auto}
+    .meeting-head{background:#fff;border-bottom:1px solid #ccd;padding:0 0 6px}
+    .meeting.collapsed .meeting-body{display:block !important}
+    .meeting-body{padding:0}
+    .meeting-head .toggle{display:none}
+    .md h2{page-break-after:avoid}
+    .md h3{background:#f2f6fa;page-break-after:avoid}
+    .md table{page-break-inside:avoid}
+    .md a{color:#000;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============================================================
+       目次（見出しから自動生成されます。手で編集する必要はありません）
+       ============================================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="search-wrap">
+      <label for="search">キーワード検索</label>
+      <input id="search" type="search" placeholder="例：課題仮説 / ペルソナ / インタビュー">
+      <p class="search-info" id="searchInfo"></p>
+    </div>
+    <div class="toc-title">目次</div>
+    <nav id="toc"></nav>
+  </aside>
+
+  <main>
+    <header class="page-head">
+      <h1 id="pageTitle">2026年9月27日のミーティング議事録</h1>
+      <p class="lead">会議ごとの議事録を1ページにまとめた資料です。左の目次から各会議へジャンプできます。新しい議事録は Markdown を追記するだけで、目次・検索対象・レイアウトが自動で更新されます。</p>
+      <div class="chips">
+        <span class="chip" id="chipCount">収録 0 件</span>
+        <span class="chip" id="chipUpdated">最終更新 —</span>
+        <span class="chip" id="chipAdded" hidden>追記 0 件</span>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <button type="button" id="btnAdd">＋ 議事録を追記</button>
+      <button type="button" id="btnExpand">すべて展開</button>
+      <button type="button" id="btnCollapse">すべて折りたたむ</button>
+      <button type="button" id="btnCopyAll">全文Markdownをコピー</button>
+      <button type="button" id="btnReset">追記分を消す</button>
+    </div>
+
+    <!-- ============================================================
+         ▼▼ 議事録を追記する場所 ▼▼
+         下の <script type="text/markdown" id="minutes-source"> の中に、
+         既存の Markdown の続きとして、そのまま貼り付けてください。
+         ・新しい議事録は「# 議事録：…」の行（半角シャープ＋半角スペース）から始めます。
+         ・この行が新しい会議の区切りになり、自動で1つの折りたたみブロックになります。
+         ・目次には会議ごとに1項目だけ並びます（中の見出しは目次に出ません）。
+         ・項目名（例：「2026年9月27日のミーティング議事録」）は、本文の「日付：2026-10-05」
+           または本文中の日付表記から自動で作られます。
+         ・日付を入れると、見出しの下に日付バッジが出ます。
+           例）1行目：「# 議事録：付箋ブラッシュアップ」／2行目：「日付：2026-09-29」
+           あるいは本文中に「2026-09-29」と書いても認識します。
+         ・ブラウザから追記したい場合は、上の「＋ 議事録を追記」ボタンも使えます。
+           その場合、内容はこのブラウザに保存され、必要なら「全文Markdownをコピー」で書き出せます。
+         ============================================================ -->
+    <div id="minutes-list"></div>
+
+    <!-- ============================================================
+         ▲▲ ここまで（以下は編集不要です）▲▲
+         ============================================================ -->
+
+    <p class="footnote">このページは1ファイル完結のHTMLです。印刷／PDF保存にも対応しています（目次・ボタン類は印刷時には出力されません）。</p>
+  </main>
+</div>
+
+<!-- ==========================================================================
+     ▼ 議事録の Markdown 本文（ここに追記していく）
+     ========================================================================== -->
+<script type="text/markdown" id="minutes-source"># 議事録：付箋ブラッシュアップ（3語の定義・ずれ・課題仮説・ペルソナ・インタビュー）
+
+## 参加者
+菅野、瀬良、金子、小熊（全員参加）
+
+## 議題
+1. 3語（交流・豊かになる・人々）の定義のすり合わせ
+2. ずれのすり合わせ
+3. 課題仮説の作成
+4. ペルソナ設定
+5. インタビュー内容の決定
+
+## 決定事項
+
+### 1. 3語の定義のすり合わせ
+
+> 時間・お金・機会の壁で交流の一歩目が出ない人々（旅に出る側も、迎える側も含む）が、人・感情・情報・お金・モノが行き来する関わり（訪問は問わない）を通じて、新しい視点や関係が日常に残るようになる
+
+### 2. ずれのすり合わせ
+
+**交流**
+訪れる（人が動く）ことだけが交流ではない。人・モノ・お金・情報のいずれかが行き来し、その結果として知識や視点を得られることも交流である。
+
+**豊かになる**
+JTBの豊かさの語り方（社会・地球という大きな主語、心の豊かさという抽象語）と、実際に個人が体験のあとに得るもの（消費者が求めているもの、Get something）のあいだにズレがある。
+
+**人々**
+「人々」を大きな主語（社会・企業・動く人全体）のままにせず、より小さく具体的な誰か（個人・受け入れ側・地方の高校生）に絞り込もうとしている。
+
+**1文にまとめると**
+> 交流の価値を最も必要としているかもしれない具体的な個人（学生や受け入れ側も含む）が、時間・お金・機会の理由で、JTBが訪問や大きな主語（社会・組織）で語る交流の外側にいる
+
+### 3. 課題仮説
+
+| 区分 | 課題仮説 |
+|---|---|
+| メイン | 海外との接点はあっても関心がない |
+| サブ | 受け入れ側の担い手が入れ替わるたび、知見や人脈がゼロに戻る |
+| サブ | 訪問しない関わりが「交流」の項目に入っていない |
+
+### 4. ペルソナ設定（項目のみ決定）
+
+学生側のペルソナ項目：
+- 年齢
+- 職業
+- 学年
+- 住んでいる地域
+- 困っていること
+- 意識・関心
+- 行動
+
+※ 項目のみ決定。中身は未確定。
+
+### 5. インタビュー内容（型のみ全員に共有）
+
+質問は以下の4つ。
+
+| 種類 | 質問 |
+|---|---|
+| 過去の行動を聞く | 最後に海外の人や文化に触れたのはいつ、どんな場面でしたか？（観光客、留学生、SNS、授業など）そのあと、何かしましたか？ |
+| 時間・お金の使い方を聞く | 直近1か月で、趣味や遊びに使った時間とお金は、何にどれくらいでしたか？ |
+| 価値観を聞く | 最近、時間を使って「やってよかった」と思ったことは何ですか？ |
+| きっかけを聞く | 最近、新しく何かを始めたり興味を持ったりしたきっかけは何でしたか？ 逆に、海外に関わる誘い（交流イベントや留学生との食事など）を断った、または行かなかった経験はありますか？ |
+
+- 支払い意欲を確認する質問は、ペルソナの中身が未確定のため意図的に外した。今後も追加しない。
+
+## 次回確認事項
+- 3語の定義（「時間・お金・機会の壁で一歩目が出ない人」＝環境・機会の壁）と、メインの課題仮説（「海外との接点はあっても関心がない」＝関心・心の壁）の整合性を確認する。
+
+# 議事録：2026年10月5日のミーティング
+
+日付：2026-10-05
+
+## ミッションと定義の確認
+
+- 前回決定した3号の定義を確認
+  - 対象: 時間・お金・機会の不足で「一歩が出ない人々」
+  - 旅に出る側・迎える側の両方を含む
+  - 人・感情・情報・お金・物のやり取りを通じて新しい視点や関係が日常に残るようにする
+- 課題仮説: 海外との接点があっても関心が生まれない
+
+## ペルソナ設定
+
+- 2つのペルソナを口頭発表形式で確認
+- ペルソナA
+  - 17歳・高校2年生・青森県在住
+  - 海外は「自分に関係ない世界」と認識
+  - 英語が苦手で最初から無理と思っている
+  - SNSで海外コンテンツを見ることはあるが自分から調べない
+  - 外国人との接触経験なし
+- ペルソナB
+  - 19〜20歳・大学2年生(就活前)・東京在住
+  - 困りごとがないと自覚している
+  - パスポート未所持・海外旅行の予定なし
+  - 留学案内メールは流し読み、留学生に話しかけたことがない
+  - 就活で海外経験を聞かれそうという漠然とした不安はある
+- 2ペルソナの共通点: 意識・関心の低さ、行動を起こさない点で類似
+
+## 解決策アイデア出し
+
+- 修学旅行×インバウンド観光客との交流体験(陶芸・茶道など)
+  - 強制的に接点を作れる点は評価
+  - ただし学校スケジュールと観光客プランの調整が困難
+  - 通訳コスト・教師負担・500人規模の運営が課題
+- 学生が地方へ行き農業などを手伝う(長期休み活用)
+  - 稼げる要素があれば動機になりうる
+  - JTBとの連携可否が不明確
+- 海外同世代の日常をスタンプ1つで解説するアプリ
+  - JTBの153拠点・現地スタッフを活用できる可能性
+- 大学授業・ゼミに海外同世代とのオンライン交流を組み込む
+- 学生が地元の特産品を海外同世代に送り感想をもらう仕組み
+  - ふるさと納税運営代行のノウハウを活用
+- 友達と2人1組で申し込める留学プラン(誘われたら行く心理)
+- 趣味(アニメ・ゲーム)を入り口にした海外同世代との共同制作
+
+## 課題・定義のズレと見直し
+
+- 課題仮説が「環境の壁」から「心の壁」にずれてきている矛盾を指摘
+- 定義(新しい視点や関係が日常に残る)と解決策の整合性を再確認
+- 能動的でない人はどんな仕組みでも動かないという根本的な問題
+- 方向性の選択肢:
+  - 課題を「環境」中心に再設定して解決策を作り直す
+  - もしくは課題自体を変える(今しかタイミングがない)
+- 「海外」に固定する必要があるか再検討
+  - 定義からは外れないが、課題設定が狭くなりすぎる懸念
+
+## 次回に向けた方針
+
+- 課題を変更・深掘りする方向で合意
+- 次回(明日)の宿題: 課題とビジネスプランを複数案考えてくる
+- ペルソナは現状維持、改善策まで逆算で考える
+- 夜9時からオンラインミーティングを設定
+  - Discord画面共有で実施
+- ビジコン発表は7分枠、数字・エビデンスの補強が必要
+
+## Next Steps
+
+- **課題とビジネスプランを複数案考えてくる**
+  - 定義との整合性を意識しながら、改善策まで逆算で設計する。
+- **夜9時からオンラインミーティングを開催**
+  - Discord画面共有で実施。課題・プランを全員で詰める。
+
+# 議事録：2026年10月6日のミーティング
+
+日付：2026-10-06
+
+## プロジェクトの方向性：ピボットの決断
+
+- 中心的な議論：課題特定アプローチを継続するか、アイディア先行アプローチにピボットするか
+- 課題特定は行き詰まり：強い新仮説が出ず、チームが壁にぶつかっている
+- 重要な気づき：課題特定は課題の評価基準に明示されていない
+  - 評価基準は「既存製品・サービスとの差別化」「アセットの効果的活用」「スケーラビリティ」に焦点
+- 合意：JTBの既存アセットと事業領域を起点にしたアイディア先行型にピボット
+  - 考え方：JTBの既存サービスの穴を見つけ、それをつなげて新規事業を構成する
+  - 「自分たちが作りたいだけ」の自己満足リスクを回避
+- 定義・スコープの設定は引き続き必須：脱線防止のため、アイディアを制約するためではない
+  - Kは連想ゲームで脱線しやすいと自覚あり；JTBを連想の起点に置くことで合意
+
+## 議論されたアイディア
+
+- **和幸の提案（現時点で最有力）：** DMO組織で人が変わるたびに知見と人脈が残らない
+  - DMO（観光地域づくり法人）にはJTBから出向者が派遣されるが、人が入れ替わると組織知識が失われる
+  - 根拠は観光庁のガイドライン（14ページ）から；現地調査ではない
+  - 提案された改善策：
+    - 「なぜこの施策を試みたか、なぜやめたか」を記録した意思決定台帳をJTBの既存の伴走型コンサルティングサービスに組み込む
+    - 現在のDMOスタッフと元出向者をつなぐ窓口・チャネルの設置
+    - 出向者中心から地域中心のガバナンスへの転換
+  - 既存サービスの改善にとどまる可能性があり、明確な「新規事業」かどうかは要検討
+- **Kの提案：** 在留外国人が日本人と交流したいが障壁がある
+  - 提案：JTBの体験プログラムで外国人居住者と日本人参加者をマッチング
+  - 新たな切り口：リベラルアーツや多様な視点を重視する企業の社員旅行をターゲットに
+  - まだ粗い段階；データは群馬県限定のもので偏りがある可能性を指摘
+- **その他のアイディア（未深掘り）：**
+  - 観客の少ないローカルイベント（自転車レース、小規模式典など）向けのエキストラ・クラウドサービス
+  - 修学旅行の再設計（より深い文化体験を促す）
+  - 引っ越し・転居の不安解消：転居者が地域コミュニティとつながる仕組み
+
+## スケジュールとネクストステップ
+
+- 目標：**今週金曜日**までにコンセプトを確定；**10月15日**までに発表資料を作成
+- 和幸とジンが10月9日までにアイディアを共同でブラッシュアップ
+  - タクミは金曜日まで対応不可（大内山さんのセッションおよびその他の予定）
+  - タクミは金曜日前日に共有される要約をもとに質問を作成
+
+## ネクストステップ
+
+- **在留外国人×社員旅行のアイディアを深掘り・ブラッシュアップする**（和幸、ジン）
+- **金曜日前日までに進捗サマリーを共有する**（和幸、ジン）
+- **JiraへのコメントをPDF形式に変換して共有する**
+</script>
+<!-- ==========================================================================
+     ▲ 議事録の Markdown 本文 ここまで
+     ========================================================================== -->
+
+<script>/* marked.js（Markdown→HTML変換ライブラリ）を同梱。ネット接続不要で動作します。 */
+/**
+ * marked v12.0.2 - a markdown parser
+ * Copyright (c) 2011-2024, Christopher Jeffrey. (MIT Licensed)
+ * https://github.com/markedjs/marked
+ */
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e="undefined"!=typeof globalThis?globalThis:e||self).marked={})}(this,(function(e){"use strict";function t(){return{async:!1,breaks:!1,extensions:null,gfm:!0,hooks:null,pedantic:!1,renderer:null,silent:!1,tokenizer:null,walkTokens:null}}function n(t){e.defaults=t}e.defaults={async:!1,breaks:!1,extensions:null,gfm:!0,hooks:null,pedantic:!1,renderer:null,silent:!1,tokenizer:null,walkTokens:null};const s=/[&<>"']/,r=new RegExp(s.source,"g"),i=/[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/,l=new RegExp(i.source,"g"),o={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"},a=e=>o[e];function c(e,t){if(t){if(s.test(e))return e.replace(r,a)}else if(i.test(e))return e.replace(l,a);return e}const h=/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/gi;function p(e){return e.replace(h,((e,t)=>"colon"===(t=t.toLowerCase())?":":"#"===t.charAt(0)?"x"===t.charAt(1)?String.fromCharCode(parseInt(t.substring(2),16)):String.fromCharCode(+t.substring(1)):""))}const u=/(^|[^\[])\^/g;function k(e,t){let n="string"==typeof e?e:e.source;t=t||"";const s={replace:(e,t)=>{let r="string"==typeof t?t:t.source;return r=r.replace(u,"$1"),n=n.replace(e,r),s},getRegex:()=>new RegExp(n,t)};return s}function g(e){try{e=encodeURI(e).replace(/%25/g,"%")}catch(e){return null}return e}const f={exec:()=>null};function d(e,t){const n=e.replace(/\|/g,((e,t,n)=>{let s=!1,r=t;for(;--r>=0&&"\\"===n[r];)s=!s;return s?"|":" |"})).split(/ \|/);let s=0;if(n[0].trim()||n.shift(),n.length>0&&!n[n.length-1].trim()&&n.pop(),t)if(n.length>t)n.splice(t);else for(;n.length<t;)n.push("");for(;s<n.length;s++)n[s]=n[s].trim().replace(/\\\|/g,"|");return n}function x(e,t,n){const s=e.length;if(0===s)return"";let r=0;for(;r<s;){const i=e.charAt(s-r-1);if(i!==t||n){if(i===t||!n)break;r++}else r++}return e.slice(0,s-r)}function b(e,t,n,s){const r=t.href,i=t.title?c(t.title):null,l=e[1].replace(/\\([\[\]])/g,"$1");if("!"!==e[0].charAt(0)){s.state.inLink=!0;const e={type:"link",raw:n,href:r,title:i,text:l,tokens:s.inlineTokens(l)};return s.state.inLink=!1,e}return{type:"image",raw:n,href:r,title:i,text:c(l)}}class w{options;rules;lexer;constructor(t){this.options=t||e.defaults}space(e){const t=this.rules.block.newline.exec(e);if(t&&t[0].length>0)return{type:"space",raw:t[0]}}code(e){const t=this.rules.block.code.exec(e);if(t){const e=t[0].replace(/^ {1,4}/gm,"");return{type:"code",raw:t[0],codeBlockStyle:"indented",text:this.options.pedantic?e:x(e,"\n")}}}fences(e){const t=this.rules.block.fences.exec(e);if(t){const e=t[0],n=function(e,t){const n=e.match(/^(\s+)(?:```)/);if(null===n)return t;const s=n[1];return t.split("\n").map((e=>{const t=e.match(/^\s+/);if(null===t)return e;const[n]=t;return n.length>=s.length?e.slice(s.length):e})).join("\n")}(e,t[3]||"");return{type:"code",raw:e,lang:t[2]?t[2].trim().replace(this.rules.inline.anyPunctuation,"$1"):t[2],text:n}}}heading(e){const t=this.rules.block.heading.exec(e);if(t){let e=t[2].trim();if(/#$/.test(e)){const t=x(e,"#");this.options.pedantic?e=t.trim():t&&!/ $/.test(t)||(e=t.trim())}return{type:"heading",raw:t[0],depth:t[1].length,text:e,tokens:this.lexer.inline(e)}}}hr(e){const t=this.rules.block.hr.exec(e);if(t)return{type:"hr",raw:t[0]}}blockquote(e){const t=this.rules.block.blockquote.exec(e);if(t){let e=t[0].replace(/\n {0,3}((?:=+|-+) *)(?=\n|$)/g,"\n    $1");e=x(e.replace(/^ *>[ \t]?/gm,""),"\n");const n=this.lexer.state.top;this.lexer.state.top=!0;const s=this.lexer.blockTokens(e);return this.lexer.state.top=n,{type:"blockquote",raw:t[0],tokens:s,text:e}}}list(e){let t=this.rules.block.list.exec(e);if(t){let n=t[1].trim();const s=n.length>1,r={type:"list",raw:"",ordered:s,start:s?+n.slice(0,-1):"",loose:!1,items:[]};n=s?`\\d{1,9}\\${n.slice(-1)}`:`\\${n}`,this.options.pedantic&&(n=s?n:"[*+-]");const i=new RegExp(`^( {0,3}${n})((?:[\t ][^\\n]*)?(?:\\n|$))`);let l="",o="",a=!1;for(;e;){let n=!1;if(!(t=i.exec(e)))break;if(this.rules.block.hr.test(e))break;l=t[0],e=e.substring(l.length);let s=t[2].split("\n",1)[0].replace(/^\t+/,(e=>" ".repeat(3*e.length))),c=e.split("\n",1)[0],h=0;this.options.pedantic?(h=2,o=s.trimStart()):(h=t[2].search(/[^ ]/),h=h>4?1:h,o=s.slice(h),h+=t[1].length);let p=!1;if(!s&&/^ *$/.test(c)&&(l+=c+"\n",e=e.substring(c.length+1),n=!0),!n){const t=new RegExp(`^ {0,${Math.min(3,h-1)}}(?:[*+-]|\\d{1,9}[.)])((?:[ \t][^\\n]*)?(?:\\n|$))`),n=new RegExp(`^ {0,${Math.min(3,h-1)}}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$)`),r=new RegExp(`^ {0,${Math.min(3,h-1)}}(?:\`\`\`|~~~)`),i=new RegExp(`^ {0,${Math.min(3,h-1)}}#`);for(;e;){const a=e.split("\n",1)[0];if(c=a,this.options.pedantic&&(c=c.replace(/^ {1,4}(?=( {4})*[^ ])/g,"  ")),r.test(c))break;if(i.test(c))break;if(t.test(c))break;if(n.test(e))break;if(c.search(/[^ ]/)>=h||!c.trim())o+="\n"+c.slice(h);else{if(p)break;if(s.search(/[^ ]/)>=4)break;if(r.test(s))break;if(i.test(s))break;if(n.test(s))break;o+="\n"+c}p||c.trim()||(p=!0),l+=a+"\n",e=e.substring(a.length+1),s=c.slice(h)}}r.loose||(a?r.loose=!0:/\n *\n *$/.test(l)&&(a=!0));let u,k=null;this.options.gfm&&(k=/^\[[ xX]\] /.exec(o),k&&(u="[ ] "!==k[0],o=o.replace(/^\[[ xX]\] +/,""))),r.items.push({type:"list_item",raw:l,task:!!k,checked:u,loose:!1,text:o,tokens:[]}),r.raw+=l}r.items[r.items.length-1].raw=l.trimEnd(),r.items[r.items.length-1].text=o.trimEnd(),r.raw=r.raw.trimEnd();for(let e=0;e<r.items.length;e++)if(this.lexer.state.top=!1,r.items[e].tokens=this.lexer.blockTokens(r.items[e].text,[]),!r.loose){const t=r.items[e].tokens.filter((e=>"space"===e.type)),n=t.length>0&&t.some((e=>/\n.*\n/.test(e.raw)));r.loose=n}if(r.loose)for(let e=0;e<r.items.length;e++)r.items[e].loose=!0;return r}}html(e){const t=this.rules.block.html.exec(e);if(t){return{type:"html",block:!0,raw:t[0],pre:"pre"===t[1]||"script"===t[1]||"style"===t[1],text:t[0]}}}def(e){const t=this.rules.block.def.exec(e);if(t){const e=t[1].toLowerCase().replace(/\s+/g," "),n=t[2]?t[2].replace(/^<(.*)>$/,"$1").replace(this.rules.inline.anyPunctuation,"$1"):"",s=t[3]?t[3].substring(1,t[3].length-1).replace(this.rules.inline.anyPunctuation,"$1"):t[3];return{type:"def",tag:e,raw:t[0],href:n,title:s}}}table(e){const t=this.rules.block.table.exec(e);if(!t)return;if(!/[:|]/.test(t[2]))return;const n=d(t[1]),s=t[2].replace(/^\||\| *$/g,"").split("|"),r=t[3]&&t[3].trim()?t[3].replace(/\n[ \t]*$/,"").split("\n"):[],i={type:"table",raw:t[0],header:[],align:[],rows:[]};if(n.length===s.length){for(const e of s)/^ *-+: *$/.test(e)?i.align.push("right"):/^ *:-+: *$/.test(e)?i.align.push("center"):/^ *:-+ *$/.test(e)?i.align.push("left"):i.align.push(null);for(const e of n)i.header.push({text:e,tokens:this.lexer.inline(e)});for(const e of r)i.rows.push(d(e,i.header.length).map((e=>({text:e,tokens:this.lexer.inline(e)}))));return i}}lheading(e){const t=this.rules.block.lheading.exec(e);if(t)return{type:"heading",raw:t[0],depth:"="===t[2].charAt(0)?1:2,text:t[1],tokens:this.lexer.inline(t[1])}}paragraph(e){const t=this.rules.block.paragraph.exec(e);if(t){const e="\n"===t[1].charAt(t[1].length-1)?t[1].slice(0,-1):t[1];return{type:"paragraph",raw:t[0],text:e,tokens:this.lexer.inline(e)}}}text(e){const t=this.rules.block.text.exec(e);if(t)return{type:"text",raw:t[0],text:t[0],tokens:this.lexer.inline(t[0])}}escape(e){const t=this.rules.inline.escape.exec(e);if(t)return{type:"escape",raw:t[0],text:c(t[1])}}tag(e){const t=this.rules.inline.tag.exec(e);if(t)return!this.lexer.state.inLink&&/^<a /i.test(t[0])?this.lexer.state.inLink=!0:this.lexer.state.inLink&&/^<\/a>/i.test(t[0])&&(this.lexer.state.inLink=!1),!this.lexer.state.inRawBlock&&/^<(pre|code|kbd|script)(\s|>)/i.test(t[0])?this.lexer.state.inRawBlock=!0:this.lexer.state.inRawBlock&&/^<\/(pre|code|kbd|script)(\s|>)/i.test(t[0])&&(this.lexer.state.inRawBlock=!1),{type:"html",raw:t[0],inLink:this.lexer.state.inLink,inRawBlock:this.lexer.state.inRawBlock,block:!1,text:t[0]}}link(e){const t=this.rules.inline.link.exec(e);if(t){const e=t[2].trim();if(!this.options.pedantic&&/^</.test(e)){if(!/>$/.test(e))return;const t=x(e.slice(0,-1),"\\");if((e.length-t.length)%2==0)return}else{const e=function(e,t){if(-1===e.indexOf(t[1]))return-1;let n=0;for(let s=0;s<e.length;s++)if("\\"===e[s])s++;else if(e[s]===t[0])n++;else if(e[s]===t[1]&&(n--,n<0))return s;return-1}(t[2],"()");if(e>-1){const n=(0===t[0].indexOf("!")?5:4)+t[1].length+e;t[2]=t[2].substring(0,e),t[0]=t[0].substring(0,n).trim(),t[3]=""}}let n=t[2],s="";if(this.options.pedantic){const e=/^([^'"]*[^\s])\s+(['"])(.*)\2/.exec(n);e&&(n=e[1],s=e[3])}else s=t[3]?t[3].slice(1,-1):"";return n=n.trim(),/^</.test(n)&&(n=this.options.pedantic&&!/>$/.test(e)?n.slice(1):n.slice(1,-1)),b(t,{href:n?n.replace(this.rules.inline.anyPunctuation,"$1"):n,title:s?s.replace(this.rules.inline.anyPunctuation,"$1"):s},t[0],this.lexer)}}reflink(e,t){let n;if((n=this.rules.inline.reflink.exec(e))||(n=this.rules.inline.nolink.exec(e))){const e=t[(n[2]||n[1]).replace(/\s+/g," ").toLowerCase()];if(!e){const e=n[0].charAt(0);return{type:"text",raw:e,text:e}}return b(n,e,n[0],this.lexer)}}emStrong(e,t,n=""){let s=this.rules.inline.emStrongLDelim.exec(e);if(!s)return;if(s[3]&&n.match(/[\p{L}\p{N}]/u))return;if(!(s[1]||s[2]||"")||!n||this.rules.inline.punctuation.exec(n)){const n=[...s[0]].length-1;let r,i,l=n,o=0;const a="*"===s[0][0]?this.rules.inline.emStrongRDelimAst:this.rules.inline.emStrongRDelimUnd;for(a.lastIndex=0,t=t.slice(-1*e.length+n);null!=(s=a.exec(t));){if(r=s[1]||s[2]||s[3]||s[4]||s[5]||s[6],!r)continue;if(i=[...r].length,s[3]||s[4]){l+=i;continue}if((s[5]||s[6])&&n%3&&!((n+i)%3)){o+=i;continue}if(l-=i,l>0)continue;i=Math.min(i,i+l+o);const t=[...s[0]][0].length,a=e.slice(0,n+s.index+t+i);if(Math.min(n,i)%2){const e=a.slice(1,-1);return{type:"em",raw:a,text:e,tokens:this.lexer.inlineTokens(e)}}const c=a.slice(2,-2);return{type:"strong",raw:a,text:c,tokens:this.lexer.inlineTokens(c)}}}}codespan(e){const t=this.rules.inline.code.exec(e);if(t){let e=t[2].replace(/\n/g," ");const n=/[^ ]/.test(e),s=/^ /.test(e)&&/ $/.test(e);return n&&s&&(e=e.substring(1,e.length-1)),e=c(e,!0),{type:"codespan",raw:t[0],text:e}}}br(e){const t=this.rules.inline.br.exec(e);if(t)return{type:"br",raw:t[0]}}del(e){const t=this.rules.inline.del.exec(e);if(t)return{type:"del",raw:t[0],text:t[2],tokens:this.lexer.inlineTokens(t[2])}}autolink(e){const t=this.rules.inline.autolink.exec(e);if(t){let e,n;return"@"===t[2]?(e=c(t[1]),n="mailto:"+e):(e=c(t[1]),n=e),{type:"link",raw:t[0],text:e,href:n,tokens:[{type:"text",raw:e,text:e}]}}}url(e){let t;if(t=this.rules.inline.url.exec(e)){let e,n;if("@"===t[2])e=c(t[0]),n="mailto:"+e;else{let s;do{s=t[0],t[0]=this.rules.inline._backpedal.exec(t[0])?.[0]??""}while(s!==t[0]);e=c(t[0]),n="www."===t[1]?"http://"+t[0]:t[0]}return{type:"link",raw:t[0],text:e,href:n,tokens:[{type:"text",raw:e,text:e}]}}}inlineText(e){const t=this.rules.inline.text.exec(e);if(t){let e;return e=this.lexer.state.inRawBlock?t[0]:c(t[0]),{type:"text",raw:t[0],text:e}}}}const m=/^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/,y=/(?:[*+-]|\d{1,9}[.)])/,$=k(/^(?!bull |blockCode|fences|blockquote|heading|html)((?:.|\n(?!\s*?\n|bull |blockCode|fences|blockquote|heading|html))+?)\n {0,3}(=+|-+) *(?:\n+|$)/).replace(/bull/g,y).replace(/blockCode/g,/ {4}/).replace(/fences/g,/ {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g,/ {0,3}>/).replace(/heading/g,/ {0,3}#{1,6}/).replace(/html/g,/ {0,3}<[^\n>]+>\n/).getRegex(),z=/^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/,T=/(?!\s*\])(?:\\.|[^\[\]\\])+/,R=k(/^ {0,3}\[(label)\]: *(?:\n *)?([^<\s][^\s]*|<.*?>)(?:(?: +(?:\n *)?| *\n *)(title))? *(?:\n+|$)/).replace("label",T).replace("title",/(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/).getRegex(),_=k(/^( {0,3}bull)([ \t][^\n]+?)?(?:\n|$)/).replace(/bull/g,y).getRegex(),A="address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul",S=/<!--(?:-?>|[\s\S]*?(?:-->|$))/,I=k("^ {0,3}(?:<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)|comment[^\\n]*(\\n+|$)|<\\?[\\s\\S]*?(?:\\?>\\n*|$)|<![A-Z][\\s\\S]*?(?:>\\n*|$)|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n *)+\\n|$)|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$)|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$))","i").replace("comment",S).replace("tag",A).replace("attribute",/ +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex(),E=k(z).replace("hr",m).replace("heading"," {0,3}#{1,6}(?:\\s|$)").replace("|lheading","").replace("|table","").replace("blockquote"," {0,3}>").replace("fences"," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list"," {0,3}(?:[*+-]|1[.)]) ").replace("html","</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag",A).getRegex(),q={blockquote:k(/^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/).replace("paragraph",E).getRegex(),code:/^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,def:R,fences:/^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/,heading:/^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,hr:m,html:I,lheading:$,list:_,newline:/^(?: *(?:\n|$))+/,paragraph:E,table:f,text:/^[^\n]+/},Z=k("^ *([^\\n ].*)\\n {0,3}((?:\\| *)?:?-+:? *(?:\\| *:?-+:? *)*(?:\\| *)?)(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)").replace("hr",m).replace("heading"," {0,3}#{1,6}(?:\\s|$)").replace("blockquote"," {0,3}>").replace("code"," {4}[^\\n]").replace("fences"," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list"," {0,3}(?:[*+-]|1[.)]) ").replace("html","</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag",A).getRegex(),L={...q,table:Z,paragraph:k(z).replace("hr",m).replace("heading"," {0,3}#{1,6}(?:\\s|$)").replace("|lheading","").replace("table",Z).replace("blockquote"," {0,3}>").replace("fences"," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list"," {0,3}(?:[*+-]|1[.)]) ").replace("html","</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag",A).getRegex()},P={...q,html:k("^ *(?:comment *(?:\\n|\\s*$)|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)|<tag(?:\"[^\"]*\"|'[^']*'|\\s[^'\"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))").replace("comment",S).replace(/tag/g,"(?!(?:a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b").getRegex(),def:/^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,heading:/^(#{1,6})(.*)(?:\n+|$)/,fences:f,lheading:/^(.+?)\n {0,3}(=+|-+) *(?:\n+|$)/,paragraph:k(z).replace("hr",m).replace("heading"," *#{1,6} *[^\n]").replace("lheading",$).replace("|table","").replace("blockquote"," {0,3}>").replace("|fences","").replace("|list","").replace("|html","").replace("|tag","").getRegex()},Q=/^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,v=/^( {2,}|\\)\n(?!\s*$)/,B="\\p{P}\\p{S}",C=k(/^((?![*_])[\spunctuation])/,"u").replace(/punctuation/g,B).getRegex(),M=k(/^(?:\*+(?:((?!\*)[punct])|[^\s*]))|^_+(?:((?!_)[punct])|([^\s_]))/,"u").replace(/punct/g,B).getRegex(),O=k("^[^_*]*?__[^_*]*?\\*[^_*]*?(?=__)|[^*]+(?=[^*])|(?!\\*)[punct](\\*+)(?=[\\s]|$)|[^punct\\s](\\*+)(?!\\*)(?=[punct\\s]|$)|(?!\\*)[punct\\s](\\*+)(?=[^punct\\s])|[\\s](\\*+)(?!\\*)(?=[punct])|(?!\\*)[punct](\\*+)(?!\\*)(?=[punct])|[^punct\\s](\\*+)(?=[^punct\\s])","gu").replace(/punct/g,B).getRegex(),D=k("^[^_*]*?\\*\\*[^_*]*?_[^_*]*?(?=\\*\\*)|[^_]+(?=[^_])|(?!_)[punct](_+)(?=[\\s]|$)|[^punct\\s](_+)(?!_)(?=[punct\\s]|$)|(?!_)[punct\\s](_+)(?=[^punct\\s])|[\\s](_+)(?!_)(?=[punct])|(?!_)[punct](_+)(?!_)(?=[punct])","gu").replace(/punct/g,B).getRegex(),j=k(/\\([punct])/,"gu").replace(/punct/g,B).getRegex(),H=k(/^<(scheme:[^\s\x00-\x1f<>]*|email)>/).replace("scheme",/[a-zA-Z][a-zA-Z0-9+.-]{1,31}/).replace("email",/[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/).getRegex(),U=k(S).replace("(?:--\x3e|$)","--\x3e").getRegex(),X=k("^comment|^</[a-zA-Z][\\w:-]*\\s*>|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>|^<\\?[\\s\\S]*?\\?>|^<![a-zA-Z]+\\s[\\s\\S]*?>|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>").replace("comment",U).replace("attribute",/\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/).getRegex(),F=/(?:\[(?:\\.|[^\[\]\\])*\]|\\.|`[^`]*`|[^\[\]\\`])*?/,N=k(/^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/).replace("label",F).replace("href",/<(?:\\.|[^\n<>\\])+>|[^\s\x00-\x1f]*/).replace("title",/"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/).getRegex(),G=k(/^!?\[(label)\]\[(ref)\]/).replace("label",F).replace("ref",T).getRegex(),J=k(/^!?\[(ref)\](?:\[\])?/).replace("ref",T).getRegex(),K={_backpedal:f,anyPunctuation:j,autolink:H,blockSkip:/\[[^[\]]*?\]\([^\(\)]*?\)|`[^`]*?`|<[^<>]*?>/g,br:v,code:/^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,del:f,emStrongLDelim:M,emStrongRDelimAst:O,emStrongRDelimUnd:D,escape:Q,link:N,nolink:J,punctuation:C,reflink:G,reflinkSearch:k("reflink|nolink(?!\\()","g").replace("reflink",G).replace("nolink",J).getRegex(),tag:X,text:/^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/,url:f},V={...K,link:k(/^!?\[(label)\]\((.*?)\)/).replace("label",F).getRegex(),reflink:k(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace("label",F).getRegex()},W={...K,escape:k(Q).replace("])","~|])").getRegex(),url:k(/^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,"i").replace("email",/[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/).getRegex(),_backpedal:/(?:[^?!.,:;*_'"~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_'"~)]+(?!$))+/,del:/^(~~?)(?=[^\s~])([\s\S]*?[^\s~])\1(?=[^~]|$)/,text:/^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/},Y={...W,br:k(v).replace("{2,}","*").getRegex(),text:k(W.text).replace("\\b_","\\b_| {2,}\\n").replace(/\{2,\}/g,"*").getRegex()},ee={normal:q,gfm:L,pedantic:P},te={normal:K,gfm:W,breaks:Y,pedantic:V};class ne{tokens;options;state;tokenizer;inlineQueue;constructor(t){this.tokens=[],this.tokens.links=Object.create(null),this.options=t||e.defaults,this.options.tokenizer=this.options.tokenizer||new w,this.tokenizer=this.options.tokenizer,this.tokenizer.options=this.options,this.tokenizer.lexer=this,this.inlineQueue=[],this.state={inLink:!1,inRawBlock:!1,top:!0};const n={block:ee.normal,inline:te.normal};this.options.pedantic?(n.block=ee.pedantic,n.inline=te.pedantic):this.options.gfm&&(n.block=ee.gfm,this.options.breaks?n.inline=te.breaks:n.inline=te.gfm),this.tokenizer.rules=n}static get rules(){return{block:ee,inline:te}}static lex(e,t){return new ne(t).lex(e)}static lexInline(e,t){return new ne(t).inlineTokens(e)}lex(e){e=e.replace(/\r\n|\r/g,"\n"),this.blockTokens(e,this.tokens);for(let e=0;e<this.inlineQueue.length;e++){const t=this.inlineQueue[e];this.inlineTokens(t.src,t.tokens)}return this.inlineQueue=[],this.tokens}blockTokens(e,t=[]){let n,s,r,i;for(e=this.options.pedantic?e.replace(/\t/g,"    ").replace(/^ +$/gm,""):e.replace(/^( *)(\t+)/gm,((e,t,n)=>t+"    ".repeat(n.length)));e;)if(!(this.options.extensions&&this.options.extensions.block&&this.options.extensions.block.some((s=>!!(n=s.call({lexer:this},e,t))&&(e=e.substring(n.raw.length),t.push(n),!0)))))if(n=this.tokenizer.space(e))e=e.substring(n.raw.length),1===n.raw.length&&t.length>0?t[t.length-1].raw+="\n":t.push(n);else if(n=this.tokenizer.code(e))e=e.substring(n.raw.length),s=t[t.length-1],!s||"paragraph"!==s.type&&"text"!==s.type?t.push(n):(s.raw+="\n"+n.raw,s.text+="\n"+n.text,this.inlineQueue[this.inlineQueue.length-1].src=s.text);else if(n=this.tokenizer.fences(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.heading(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.hr(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.blockquote(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.list(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.html(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.def(e))e=e.substring(n.raw.length),s=t[t.length-1],!s||"paragraph"!==s.type&&"text"!==s.type?this.tokens.links[n.tag]||(this.tokens.links[n.tag]={href:n.href,title:n.title}):(s.raw+="\n"+n.raw,s.text+="\n"+n.raw,this.inlineQueue[this.inlineQueue.length-1].src=s.text);else if(n=this.tokenizer.table(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.lheading(e))e=e.substring(n.raw.length),t.push(n);else{if(r=e,this.options.extensions&&this.options.extensions.startBlock){let t=1/0;const n=e.slice(1);let s;this.options.extensions.startBlock.forEach((e=>{s=e.call({lexer:this},n),"number"==typeof s&&s>=0&&(t=Math.min(t,s))})),t<1/0&&t>=0&&(r=e.substring(0,t+1))}if(this.state.top&&(n=this.tokenizer.paragraph(r)))s=t[t.length-1],i&&"paragraph"===s.type?(s.raw+="\n"+n.raw,s.text+="\n"+n.text,this.inlineQueue.pop(),this.inlineQueue[this.inlineQueue.length-1].src=s.text):t.push(n),i=r.length!==e.length,e=e.substring(n.raw.length);else if(n=this.tokenizer.text(e))e=e.substring(n.raw.length),s=t[t.length-1],s&&"text"===s.type?(s.raw+="\n"+n.raw,s.text+="\n"+n.text,this.inlineQueue.pop(),this.inlineQueue[this.inlineQueue.length-1].src=s.text):t.push(n);else if(e){const t="Infinite loop on byte: "+e.charCodeAt(0);if(this.options.silent){console.error(t);break}throw new Error(t)}}return this.state.top=!0,t}inline(e,t=[]){return this.inlineQueue.push({src:e,tokens:t}),t}inlineTokens(e,t=[]){let n,s,r,i,l,o,a=e;if(this.tokens.links){const e=Object.keys(this.tokens.links);if(e.length>0)for(;null!=(i=this.tokenizer.rules.inline.reflinkSearch.exec(a));)e.includes(i[0].slice(i[0].lastIndexOf("[")+1,-1))&&(a=a.slice(0,i.index)+"["+"a".repeat(i[0].length-2)+"]"+a.slice(this.tokenizer.rules.inline.reflinkSearch.lastIndex))}for(;null!=(i=this.tokenizer.rules.inline.blockSkip.exec(a));)a=a.slice(0,i.index)+"["+"a".repeat(i[0].length-2)+"]"+a.slice(this.tokenizer.rules.inline.blockSkip.lastIndex);for(;null!=(i=this.tokenizer.rules.inline.anyPunctuation.exec(a));)a=a.slice(0,i.index)+"++"+a.slice(this.tokenizer.rules.inline.anyPunctuation.lastIndex);for(;e;)if(l||(o=""),l=!1,!(this.options.extensions&&this.options.extensions.inline&&this.options.extensions.inline.some((s=>!!(n=s.call({lexer:this},e,t))&&(e=e.substring(n.raw.length),t.push(n),!0)))))if(n=this.tokenizer.escape(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.tag(e))e=e.substring(n.raw.length),s=t[t.length-1],s&&"text"===n.type&&"text"===s.type?(s.raw+=n.raw,s.text+=n.text):t.push(n);else if(n=this.tokenizer.link(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.reflink(e,this.tokens.links))e=e.substring(n.raw.length),s=t[t.length-1],s&&"text"===n.type&&"text"===s.type?(s.raw+=n.raw,s.text+=n.text):t.push(n);else if(n=this.tokenizer.emStrong(e,a,o))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.codespan(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.br(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.del(e))e=e.substring(n.raw.length),t.push(n);else if(n=this.tokenizer.autolink(e))e=e.substring(n.raw.length),t.push(n);else if(this.state.inLink||!(n=this.tokenizer.url(e))){if(r=e,this.options.extensions&&this.options.extensions.startInline){let t=1/0;const n=e.slice(1);let s;this.options.extensions.startInline.forEach((e=>{s=e.call({lexer:this},n),"number"==typeof s&&s>=0&&(t=Math.min(t,s))})),t<1/0&&t>=0&&(r=e.substring(0,t+1))}if(n=this.tokenizer.inlineText(r))e=e.substring(n.raw.length),"_"!==n.raw.slice(-1)&&(o=n.raw.slice(-1)),l=!0,s=t[t.length-1],s&&"text"===s.type?(s.raw+=n.raw,s.text+=n.text):t.push(n);else if(e){const t="Infinite loop on byte: "+e.charCodeAt(0);if(this.options.silent){console.error(t);break}throw new Error(t)}}else e=e.substring(n.raw.length),t.push(n);return t}}class se{options;constructor(t){this.options=t||e.defaults}code(e,t,n){const s=(t||"").match(/^\S*/)?.[0];return e=e.replace(/\n$/,"")+"\n",s?'<pre><code class="language-'+c(s)+'">'+(n?e:c(e,!0))+"</code></pre>\n":"<pre><code>"+(n?e:c(e,!0))+"</code></pre>\n"}blockquote(e){return`<blockquote>\n${e}</blockquote>\n`}html(e,t){return e}heading(e,t,n){return`<h${t}>${e}</h${t}>\n`}hr(){return"<hr>\n"}list(e,t,n){const s=t?"ol":"ul";return"<"+s+(t&&1!==n?' start="'+n+'"':"")+">\n"+e+"</"+s+">\n"}listitem(e,t,n){return`<li>${e}</li>\n`}checkbox(e){return"<input "+(e?'checked="" ':"")+'disabled="" type="checkbox">'}paragraph(e){return`<p>${e}</p>\n`}table(e,t){return t&&(t=`<tbody>${t}</tbody>`),"<table>\n<thead>\n"+e+"</thead>\n"+t+"</table>\n"}tablerow(e){return`<tr>\n${e}</tr>\n`}tablecell(e,t){const n=t.header?"th":"td";return(t.align?`<${n} align="${t.align}">`:`<${n}>`)+e+`</${n}>\n`}strong(e){return`<strong>${e}</strong>`}em(e){return`<em>${e}</em>`}codespan(e){return`<code>${e}</code>`}br(){return"<br>"}del(e){return`<del>${e}</del>`}link(e,t,n){const s=g(e);if(null===s)return n;let r='<a href="'+(e=s)+'"';return t&&(r+=' title="'+t+'"'),r+=">"+n+"</a>",r}image(e,t,n){const s=g(e);if(null===s)return n;let r=`<img src="${e=s}" alt="${n}"`;return t&&(r+=` title="${t}"`),r+=">",r}text(e){return e}}class re{strong(e){return e}em(e){return e}codespan(e){return e}del(e){return e}html(e){return e}text(e){return e}link(e,t,n){return""+n}image(e,t,n){return""+n}br(){return""}}class ie{options;renderer;textRenderer;constructor(t){this.options=t||e.defaults,this.options.renderer=this.options.renderer||new se,this.renderer=this.options.renderer,this.renderer.options=this.options,this.textRenderer=new re}static parse(e,t){return new ie(t).parse(e)}static parseInline(e,t){return new ie(t).parseInline(e)}parse(e,t=!0){let n="";for(let s=0;s<e.length;s++){const r=e[s];if(this.options.extensions&&this.options.extensions.renderers&&this.options.extensions.renderers[r.type]){const e=r,t=this.options.extensions.renderers[e.type].call({parser:this},e);if(!1!==t||!["space","hr","heading","code","table","blockquote","list","html","paragraph","text"].includes(e.type)){n+=t||"";continue}}switch(r.type){case"space":continue;case"hr":n+=this.renderer.hr();continue;case"heading":{const e=r;n+=this.renderer.heading(this.parseInline(e.tokens),e.depth,p(this.parseInline(e.tokens,this.textRenderer)));continue}case"code":{const e=r;n+=this.renderer.code(e.text,e.lang,!!e.escaped);continue}case"table":{const e=r;let t="",s="";for(let t=0;t<e.header.length;t++)s+=this.renderer.tablecell(this.parseInline(e.header[t].tokens),{header:!0,align:e.align[t]});t+=this.renderer.tablerow(s);let i="";for(let t=0;t<e.rows.length;t++){const n=e.rows[t];s="";for(let t=0;t<n.length;t++)s+=this.renderer.tablecell(this.parseInline(n[t].tokens),{header:!1,align:e.align[t]});i+=this.renderer.tablerow(s)}n+=this.renderer.table(t,i);continue}case"blockquote":{const e=r,t=this.parse(e.tokens);n+=this.renderer.blockquote(t);continue}case"list":{const e=r,t=e.ordered,s=e.start,i=e.loose;let l="";for(let t=0;t<e.items.length;t++){const n=e.items[t],s=n.checked,r=n.task;let o="";if(n.task){const e=this.renderer.checkbox(!!s);i?n.tokens.length>0&&"paragraph"===n.tokens[0].type?(n.tokens[0].text=e+" "+n.tokens[0].text,n.tokens[0].tokens&&n.tokens[0].tokens.length>0&&"text"===n.tokens[0].tokens[0].type&&(n.tokens[0].tokens[0].text=e+" "+n.tokens[0].tokens[0].text)):n.tokens.unshift({type:"text",text:e+" "}):o+=e+" "}o+=this.parse(n.tokens,i),l+=this.renderer.listitem(o,r,!!s)}n+=this.renderer.list(l,t,s);continue}case"html":{const e=r;n+=this.renderer.html(e.text,e.block);continue}case"paragraph":{const e=r;n+=this.renderer.paragraph(this.parseInline(e.tokens));continue}case"text":{let i=r,l=i.tokens?this.parseInline(i.tokens):i.text;for(;s+1<e.length&&"text"===e[s+1].type;)i=e[++s],l+="\n"+(i.tokens?this.parseInline(i.tokens):i.text);n+=t?this.renderer.paragraph(l):l;continue}default:{const e='Token with "'+r.type+'" type was not found.';if(this.options.silent)return console.error(e),"";throw new Error(e)}}}return n}parseInline(e,t){t=t||this.renderer;let n="";for(let s=0;s<e.length;s++){const r=e[s];if(this.options.extensions&&this.options.extensions.renderers&&this.options.extensions.renderers[r.type]){const e=this.options.extensions.renderers[r.type].call({parser:this},r);if(!1!==e||!["escape","html","link","image","strong","em","codespan","br","del","text"].includes(r.type)){n+=e||"";continue}}switch(r.type){case"escape":{const e=r;n+=t.text(e.text);break}case"html":{const e=r;n+=t.html(e.text);break}case"link":{const e=r;n+=t.link(e.href,e.title,this.parseInline(e.tokens,t));break}case"image":{const e=r;n+=t.image(e.href,e.title,e.text);break}case"strong":{const e=r;n+=t.strong(this.parseInline(e.tokens,t));break}case"em":{const e=r;n+=t.em(this.parseInline(e.tokens,t));break}case"codespan":{const e=r;n+=t.codespan(e.text);break}case"br":n+=t.br();break;case"del":{const e=r;n+=t.del(this.parseInline(e.tokens,t));break}case"text":{const e=r;n+=t.text(e.text);break}default:{const e='Token with "'+r.type+'" type was not found.';if(this.options.silent)return console.error(e),"";throw new Error(e)}}}return n}}class le{options;constructor(t){this.options=t||e.defaults}static passThroughHooks=new Set(["preprocess","postprocess","processAllTokens"]);preprocess(e){return e}postprocess(e){return e}processAllTokens(e){return e}}class oe{defaults={async:!1,breaks:!1,extensions:null,gfm:!0,hooks:null,pedantic:!1,renderer:null,silent:!1,tokenizer:null,walkTokens:null};options=this.setOptions;parse=this.#e(ne.lex,ie.parse);parseInline=this.#e(ne.lexInline,ie.parseInline);Parser=ie;Renderer=se;TextRenderer=re;Lexer=ne;Tokenizer=w;Hooks=le;constructor(...e){this.use(...e)}walkTokens(e,t){let n=[];for(const s of e)switch(n=n.concat(t.call(this,s)),s.type){case"table":{const e=s;for(const s of e.header)n=n.concat(this.walkTokens(s.tokens,t));for(const s of e.rows)for(const e of s)n=n.concat(this.walkTokens(e.tokens,t));break}case"list":{const e=s;n=n.concat(this.walkTokens(e.items,t));break}default:{const e=s;this.defaults.extensions?.childTokens?.[e.type]?this.defaults.extensions.childTokens[e.type].forEach((s=>{const r=e[s].flat(1/0);n=n.concat(this.walkTokens(r,t))})):e.tokens&&(n=n.concat(this.walkTokens(e.tokens,t)))}}return n}use(...e){const t=this.defaults.extensions||{renderers:{},childTokens:{}};return e.forEach((e=>{const n={...e};if(n.async=this.defaults.async||n.async||!1,e.extensions&&(e.extensions.forEach((e=>{if(!e.name)throw new Error("extension name required");if("renderer"in e){const n=t.renderers[e.name];t.renderers[e.name]=n?function(...t){let s=e.renderer.apply(this,t);return!1===s&&(s=n.apply(this,t)),s}:e.renderer}if("tokenizer"in e){if(!e.level||"block"!==e.level&&"inline"!==e.level)throw new Error("extension level must be 'block' or 'inline'");const n=t[e.level];n?n.unshift(e.tokenizer):t[e.level]=[e.tokenizer],e.start&&("block"===e.level?t.startBlock?t.startBlock.push(e.start):t.startBlock=[e.start]:"inline"===e.level&&(t.startInline?t.startInline.push(e.start):t.startInline=[e.start]))}"childTokens"in e&&e.childTokens&&(t.childTokens[e.name]=e.childTokens)})),n.extensions=t),e.renderer){const t=this.defaults.renderer||new se(this.defaults);for(const n in e.renderer){if(!(n in t))throw new Error(`renderer '${n}' does not exist`);if("options"===n)continue;const s=n,r=e.renderer[s],i=t[s];t[s]=(...e)=>{let n=r.apply(t,e);return!1===n&&(n=i.apply(t,e)),n||""}}n.renderer=t}if(e.tokenizer){const t=this.defaults.tokenizer||new w(this.defaults);for(const n in e.tokenizer){if(!(n in t))throw new Error(`tokenizer '${n}' does not exist`);if(["options","rules","lexer"].includes(n))continue;const s=n,r=e.tokenizer[s],i=t[s];t[s]=(...e)=>{let n=r.apply(t,e);return!1===n&&(n=i.apply(t,e)),n}}n.tokenizer=t}if(e.hooks){const t=this.defaults.hooks||new le;for(const n in e.hooks){if(!(n in t))throw new Error(`hook '${n}' does not exist`);if("options"===n)continue;const s=n,r=e.hooks[s],i=t[s];le.passThroughHooks.has(n)?t[s]=e=>{if(this.defaults.async)return Promise.resolve(r.call(t,e)).then((e=>i.call(t,e)));const n=r.call(t,e);return i.call(t,n)}:t[s]=(...e)=>{let n=r.apply(t,e);return!1===n&&(n=i.apply(t,e)),n}}n.hooks=t}if(e.walkTokens){const t=this.defaults.walkTokens,s=e.walkTokens;n.walkTokens=function(e){let n=[];return n.push(s.call(this,e)),t&&(n=n.concat(t.call(this,e))),n}}this.defaults={...this.defaults,...n}})),this}setOptions(e){return this.defaults={...this.defaults,...e},this}lexer(e,t){return ne.lex(e,t??this.defaults)}parser(e,t){return ie.parse(e,t??this.defaults)}#e(e,t){return(n,s)=>{const r={...s},i={...this.defaults,...r};!0===this.defaults.async&&!1===r.async&&(i.silent||console.warn("marked(): The async option was set to true by an extension. The async: false option sent to parse will be ignored."),i.async=!0);const l=this.#t(!!i.silent,!!i.async);if(null==n)return l(new Error("marked(): input parameter is undefined or null"));if("string"!=typeof n)return l(new Error("marked(): input parameter is of type "+Object.prototype.toString.call(n)+", string expected"));if(i.hooks&&(i.hooks.options=i),i.async)return Promise.resolve(i.hooks?i.hooks.preprocess(n):n).then((t=>e(t,i))).then((e=>i.hooks?i.hooks.processAllTokens(e):e)).then((e=>i.walkTokens?Promise.all(this.walkTokens(e,i.walkTokens)).then((()=>e)):e)).then((e=>t(e,i))).then((e=>i.hooks?i.hooks.postprocess(e):e)).catch(l);try{i.hooks&&(n=i.hooks.preprocess(n));let s=e(n,i);i.hooks&&(s=i.hooks.processAllTokens(s)),i.walkTokens&&this.walkTokens(s,i.walkTokens);let r=t(s,i);return i.hooks&&(r=i.hooks.postprocess(r)),r}catch(e){return l(e)}}}#t(e,t){return n=>{if(n.message+="\nPlease report this to https://github.com/markedjs/marked.",e){const e="<p>An error occurred:</p><pre>"+c(n.message+"",!0)+"</pre>";return t?Promise.resolve(e):e}if(t)return Promise.reject(n);throw n}}}const ae=new oe;function ce(e,t){return ae.parse(e,t)}ce.options=ce.setOptions=function(e){return ae.setOptions(e),ce.defaults=ae.defaults,n(ce.defaults),ce},ce.getDefaults=t,ce.defaults=e.defaults,ce.use=function(...e){return ae.use(...e),ce.defaults=ae.defaults,n(ce.defaults),ce},ce.walkTokens=function(e,t){return ae.walkTokens(e,t)},ce.parseInline=ae.parseInline,ce.Parser=ie,ce.parser=ie.parse,ce.Renderer=se,ce.TextRenderer=re,ce.Lexer=ne,ce.lexer=ne.lex,ce.Tokenizer=w,ce.Hooks=le,ce.parse=ce;const he=ce.options,pe=ce.setOptions,ue=ce.use,ke=ce.walkTokens,ge=ce.parseInline,fe=ce,de=ie.parse,xe=ne.lex;e.Hooks=le,e.Lexer=ne,e.Marked=oe,e.Parser=ie,e.Renderer=se,e.TextRenderer=re,e.Tokenizer=w,e.getDefaults=t,e.lexer=xe,e.marked=ce,e.options=he,e.parse=fe,e.parseInline=ge,e.parser=de,e.setOptions=pe,e.use=ue,e.walkTokens=ke}));
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  var SOURCE = document.getElementById("minutes-source");
+  var BASE_MD = SOURCE ? SOURCE.textContent.replace(/^\s*\n/, "") : "";
+  var NO_DATE_NAME = "2026年9月27日のミーティング議事録"; // 本文に日付がない場合の会議名（1件目＝今回の議事録）
+  var UNDATED_NAME = "日付未記載のミーティング議事録";      // 2件目以降で日付がない場合
+
+  /* ---------- 会議名（日付から作る） ---------- */
+  function nameFromDate(date, idx) {
+    if (!date) return idx === 0 ? NO_DATE_NAME : UNDATED_NAME;
+    var m = date.match(/(\d{4})\s*[-\/年]\s*(\d{1,2})\s*[-\/月]\s*(\d{1,2})/);
+    if (!m) return idx === 0 ? NO_DATE_NAME : UNDATED_NAME;
+    return m[1] + "年" + parseInt(m[2], 10) + "月" + parseInt(m[3], 10) + "日のミーティング議事録";
+  }
+  var STORE_KEY = "minutes_archive_added_v1";
+  var listEl = document.getElementById("minutes-list");
+
+  /* ---------- 追記分の読み書き（ブラウザ保存／失敗しても落ちない） ---------- */
+  function loadAdded() {
+    try {
+      var raw = window.localStorage.getItem(STORE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) { return []; }
+  }
+  function saveAdded(arr) {
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(arr)); return true; }
+    catch (e) { return false; }
+  }
+  /* 共有保存：db が使えるときは全員共通の保存先、使えないときは従来どおりこのブラウザ内 */
+  var dbc = null;          // db 名前空間（取得できたら入る）
+  var canWrite = null;     // true / false / null（不明）
+  var shared = [];         // 共有保存分 [{id, md}]
+  var added = loadAdded(); // ブラウザ内保存分（db が使えないときの代替）
+  var addedInMemory = [];
+
+  function addedTexts() {
+    if (dbc) return shared.map(function (d) { return d.md; });
+    return added.concat(addedInMemory);
+  }
+  function hasAdded() { return addedTexts().length > 0; }
+
+  function currentMarkdown() {
+    var parts = [BASE_MD.replace(/\s+$/, "")];
+    addedTexts().forEach(function (t) { if (t && t.trim()) parts.push(t.trim()); });
+    return parts.join("\n\n");
+  }
+
+  /* ---------- Markdown → HTML ---------- */
+  function toHtml(md) {
+    if (typeof window.marked === "undefined") {
+      var pre = document.createElement("pre");
+      pre.textContent = md;
+      return pre.outerHTML;
+    }
+    var opts = { gfm: true, breaks: true, headerIds: false, mangle: false };
+    var html = (window.marked.parse || window.marked)(md, opts);
+    // 補足メモ行（※…）を読みやすく
+    html = html.replace(/<p>(※[^<]*)<\/p>/g, '<p class="note">$1</p>');
+    return html;
+  }
+
+  /* ---------- 日付の抽出 ---------- */
+  function detectDate(md) {
+    var labeled = md.match(/日\s*付\s*[:：]\s*([^\n]+)/);
+    if (labeled) return labeled[1].trim();
+    var iso = md.match(/(20\d{2})[-\/年]\s*(\d{1,2})[-\/月]\s*(\d{1,2})/);
+    if (iso) {
+      var m = ("0" + iso[2]).slice(-2), d = ("0" + iso[3]).slice(-2);
+      return iso[1] + "-" + m + "-" + d;
+    }
+    return "";
+  }
+
+  /* ---------- 参加者の抽出 ---------- */
+  function detectAttendees(md) {
+    var re = /^##+\s*(参加者|出席者|メンバー)\s*$/m;
+    var hit = md.match(re);
+    if (!hit) return "";
+    var after = md.slice(md.indexOf(hit[0]) + hit[0].length).replace(/^\s*\n/, "");
+    var line = after.split("\n").filter(function (l) { return l.trim() !== ""; })[0];
+    if (!line) return "";
+    line = line.replace(/^[-*・]\s*/, "").replace(/[*|]/g, "").trim();
+    return line.length > 70 ? line.slice(0, 70) + "…" : line;
+  }
+
+  /* ---------- 見出し用の短いタイトル ---------- */
+  function cleanTitle(t) {
+    return t.replace(/^#+\s*/, "").replace(/^議事録\s*[:：]\s*/, "").trim() || "議事録";
+  }
+
+  /* ---------- 描画 ---------- */
+  function render() {
+    if (!listEl) return;
+    listEl.innerHTML = "";
+    var full = currentMarkdown();
+
+    // 「# 」で始まる行を区切りとして会議ごとに分割
+    var blocks = full.split(/\n(?=#\s)/).filter(function (b) { return b.trim() !== ""; });
+
+    if (!blocks.length) {
+      var e = document.createElement("div");
+      e.className = "empty";
+      e.textContent = "議事録がまだありません。Markdown を追記してください。";
+      listEl.appendChild(e);
+      document.getElementById("toc").innerHTML = "";
+      document.getElementById("chipCount").textContent = "収録 0 件";
+      return;
+    }
+
+    var tocHtml = "";
+    var count = 0;
+    var meetingList = [];
+
+    blocks.forEach(function (block, bi) {
+      count++;
+      var lines = block.split("\n");
+      var title = cleanTitle(lines[0] || "");
+      var mid = "mtg-" + (bi + 1);
+      var section = document.createElement("section");
+      section.className = "meeting";
+      section.id = mid;
+
+      var date = detectDate(block);
+      var people = detectAttendees(block);
+      var meetingName = nameFromDate(date, bi);
+      meetingList.push({ date: date, name: meetingName });
+
+      var head = document.createElement("div");
+      head.className = "meeting-head";
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "toggle";
+      btn.setAttribute("aria-label", "開閉");
+      btn.addEventListener("click", function () { section.classList.toggle("collapsed"); });
+
+      var headText = document.createElement("div");
+      headText.className = "meeting-head-text";
+      var h2 = document.createElement("h2");
+      h2.textContent = meetingName;
+      // 見出しクリックで開閉
+      h2.addEventListener("click", function () { section.classList.toggle("collapsed"); });
+      h2.style.cursor = "zoom-in";
+      headText.appendChild(h2);
+
+      var meta = document.createElement("div");
+      meta.className = "meeting-meta";
+      if (!date) {
+        var nd = document.createElement("span");
+        nd.className = "tag brass";
+        nd.textContent = "日付未記載";
+        meta.appendChild(nd);
+      }
+      if (people) {
+        var pp = document.createElement("span");
+        pp.className = "tag";
+        pp.textContent = "参加者：" + people;
+        meta.appendChild(pp);
+      }
+      headText.appendChild(meta);
+      head.appendChild(btn);
+      head.appendChild(headText);
+
+      var body = document.createElement("div");
+      body.className = "meeting-body md";
+      body.innerHTML = toHtml(block);
+
+      section.appendChild(head);
+      section.appendChild(body);
+      listEl.appendChild(section);
+
+      // 会議ブロック内の見出しにはIDのみ付与（目次は会議ごとに1項目だけにする）
+      body.querySelectorAll("h2, h3").forEach(function (h, hi) { h.id = mid + "-h" + (hi + 1); });
+      tocHtml += '<a class="top" href="#' + mid + '">' + escapeHtml(meetingName) + "</a>";
+    });
+
+    document.getElementById("toc").innerHTML = tocHtml;
+
+    // ページの題名＝会議名（日付があるもののうち最新。なければ先頭の会議名）
+    var dated = meetingList.filter(function (x) { return x.date; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    var pageName = dated.length ? dated[0].name : (meetingList.length ? meetingList[0].name : NO_DATE_NAME);
+    document.title = pageName;
+    var pageTitleEl = document.getElementById("pageTitle");
+    if (pageTitleEl) pageTitleEl.textContent = pageName;
+
+    // ヘッダー情報
+    var dates = (full.match(/日\s*付\s*[:：]\s*([^\n]+)/g) || []).map(function (s) { return s.replace(/日\s*付\s*[:：]\s*/, "").trim(); })
+      .concat((full.match(/(20\d{2})[-\/年]\s*\d{1,2}[-\/月]\s*\d{1,2}/g) || []).map(function (s) {
+        var m = s.match(/(20\d{2})[-\/年]\s*(\d{1,2})[-\/月]\s*(\d{1,2})/);
+        return m ? m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2) : "";
+      })).filter(Boolean).sort();
+    if (!dates.length && pageName) {
+      var pm = pageName.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+      if (pm) dates = [pm[1] + "-" + ("0" + pm[2]).slice(-2) + "-" + ("0" + pm[3]).slice(-2)];
+    }
+    document.getElementById("chipCount").textContent = "収録 " + count + " 件";
+    document.getElementById("chipUpdated").textContent = "最終更新 " + (dates.length ? dates[dates.length - 1] : "—");
+
+    var nAdded = added.length + addedInMemory.length;
+    var chipAdded = document.getElementById("chipAdded");
+    chipAdded.hidden = nAdded === 0;
+    chipAdded.textContent = "追記 " + nAdded + " 件（このブラウザ保存）";
+
+    syncActive();
+    applyFilter();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  /* ---------- 検索（会議単位で絞り込み＋目次の絞り込み） ---------- */
+  var searchEl = document.getElementById("search");
+  function normalize(s) {
+    return (s || "").toLowerCase().replace(/[\s　]/g, "");
+  }
+  function applyFilter() {
+    if (!searchEl) return;
+    var q = normalize(searchEl.value);
+    var sections = listEl.querySelectorAll(".meeting");
+    var hits = 0;
+    sections.forEach(function (sec) {
+      var hit = !q || normalize(sec.textContent).indexOf(q) !== -1;
+      sec.style.display = hit ? "" : "none";
+      if (hit) hits++;
+    });
+    // 目次側
+    document.querySelectorAll("#toc a.top").forEach(function (a) {
+      var hit = !q || normalize(a.textContent).indexOf(q) !== -1;
+      a.style.display = hit ? "" : "none";
+    });
+    var info = document.getElementById("searchInfo");
+    if (!q) { info.textContent = ""; }
+    else if (hits === 0) { info.textContent = "該当なし（別のキーワードをお試しください）"; }
+    else { info.textContent = hits + " 件の会議が該当しました"; }
+  }
+  if (searchEl) {
+    searchEl.addEventListener("input", applyFilter);
+    searchEl.addEventListener("keydown", function (e) { if (e.key === "Escape") { searchEl.value = ""; applyFilter(); } });
+  }
+
+  /* ---------- 目次のハイライト（スクロール連動） ---------- */
+  var activeLinks = [];
+  function syncActive() {
+    activeLinks = [].slice.call(document.querySelectorAll("#toc a"));
+    if (!("IntersectionObserver" in window)) return;
+    var targets = [].slice.call(listEl.querySelectorAll(".meeting"));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        activeLinks.forEach(function (a) { a.classList.remove("active"); });
+        var a = document.querySelector('#toc a[href="#' + en.target.id + '"]');
+        if (a) a.classList.add("active");
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    targets.forEach(function (t) { io.observe(t); });
+  }
+
+  /* ---------- 追記パネル ---------- */
+  var panel = document.createElement("div");
+  panel.className = "append";
+  panel.innerHTML =
+    '<div class="append-head" id="appendHead">＋ 議事録を追記<span class="sub">Markdown を貼り付けて「追記する」を押すと、このページに会議が1件追加され、目次と検索にも反映されます。</span></div>' +
+    '<div class="append-body">' +
+      '<textarea id="appendText" spellcheck="false" placeholder="# 議事録：会議名&#10;日付：2026-10-05&#10;&#10;## 参加者&#10;菅野、瀬良&#10;&#10;## 議題&#10;1. …&#10;&#10;## 決定事項&#10;### 1. …&#10;&#10;## 次回確認事項&#10;- …"></textarea>' +
+      '<div class="row">' +
+        '<button type="button" id="appendPreview">プレビュー</button>' +
+        '<button type="button" id="appendSave">追記する</button>' +
+        '<button type="button" id="appendCopy">全文Markdownをコピー</button>' +
+        '<button type="button" id="appendClose">閉じる</button>' +
+      '</div>' +
+      '<p class="hint">先頭は <code># 議事録：会議名</code> の1行から始め、次に <code>日付：2026-10-05</code> を書くとバッジが付きます。以降は <code>## 見出し</code> / <code>### 小見出し</code> / 表 / 箇条書き / <code>&gt; 引用</code> がそのまま使えます。このサイトでは、追記した内容はこのブラウザにだけ保存されます（他の人の画面には出ません）。全員に見せたい議事録は、「全文Markdownをコピー」で書き出して管理者に渡してください。</p>' +
+      '<p class="status" id="appendStatus"></p>' +
+      '<div class="preview-label" id="previewLabel" hidden>プレビュー</div>' +
+      '<div class="preview md" id="appendPreviewBox" hidden></div>' +
+    '</div>';
+  listEl.parentNode.insertBefore(panel, listEl);
+
+  var ta = document.getElementById("appendText");
+  var statusEl = document.getElementById("appendStatus");
+  var previewBox = document.getElementById("appendPreviewBox");
+  var previewLabel = document.getElementById("previewLabel");
+
+  document.getElementById("appendHead").addEventListener("click", function () { panel.classList.toggle("open"); });
+  document.getElementById("btnAdd").addEventListener("click", function () {
+    panel.classList.add("open");
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    ta.focus();
+  });
+  document.getElementById("appendClose").addEventListener("click", function () { panel.classList.remove("open"); });
+
+  document.getElementById("appendPreview").addEventListener("click", function () {
+    var v = ta.value.trim();
+    if (!v) { statusEl.className = "status err"; statusEl.textContent = "Markdown が入力されていません。"; return; }
+    previewBox.innerHTML = toHtml(v);
+    previewBox.hidden = false;
+    previewLabel.hidden = false;
+    statusEl.className = "status";
+    statusEl.textContent = "プレビューを表示しました。「追記する」でページに追加します。";
+  });
+
+  var saving = false;
+  document.getElementById("appendSave").addEventListener("click", function () {
+    var v = ta.value.trim();
+    if (!v) { statusEl.className = "status err"; statusEl.textContent = "Markdown が入力されていません。"; return; }
+    if (!/^#\s/.test(v)) {
+      v = "# 議事録\n\n" + v;
+    }
+    if (saving) return;
+    function finish(ok, msg) {
+      saving = false;
+      if (ok) {
+        ta.value = "";
+        previewBox.hidden = true;
+        previewLabel.hidden = true;
+      }
+      statusEl.className = ok ? "status" : "status err";
+      statusEl.textContent = msg;
+    }
+    if (dbc) {
+      if (canWrite === false) { finish(false, "このページを編集できる権限がないため、追記できません。"); return; }
+      saving = true;
+      statusEl.className = "status";
+      statusEl.textContent = "保存しています…";
+      dbc.collection("minutes").add({ md: v, at: Date.now() }).then(function () {
+        finish(true, "追記しました。このページを開いている全員に反映されます。");
+      }, function (e) {
+        var code = e && e.code;
+        finish(false, code === "invalid_argument"
+          ? "このページを編集できる権限がないため、追記できませんでした。"
+          : "保存できませんでした。時間をおいてもう一度お試しください。");
+      });
+      return;
+    }
+    added.push(v);
+    var ok = saveAdded(added);
+    if (!ok) { addedInMemory.push(v); }
+    finish(ok, ok
+      ? "追記しました（共有保存が使えないため、このブラウザにだけ保存しています）。"
+      : "追記しました（保存が使えないため、今回の表示のみ有効です）。");
+    render();
+  });
+
+  function copyAll(btn, label) {
+    var text = currentMarkdown();
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = "コピーしました ✓";
+      setTimeout(function () { btn.textContent = old; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var tmp = document.createElement("textarea");
+      tmp.value = text;
+      document.body.appendChild(tmp);
+      tmp.select();
+      try { document.execCommand("copy"); done(); } catch (e) {
+        var old = btn.textContent;
+        btn.textContent = "コピーできませんでした";
+        setTimeout(function () { btn.textContent = old; }, 2200);
+      }
+      document.body.removeChild(tmp);
+    }
+  }
+  document.getElementById("appendCopy").addEventListener("click", function () { copyAll(this); });
+  document.getElementById("btnCopyAll").addEventListener("click", function () { copyAll(this); });
+
+  document.getElementById("btnExpand").addEventListener("click", function () {
+    listEl.querySelectorAll(".meeting").forEach(function (s) { s.classList.remove("collapsed"); });
+  });
+  document.getElementById("btnCollapse").addEventListener("click", function () {
+    listEl.querySelectorAll(".meeting").forEach(function (s) { s.classList.add("collapsed"); });
+  });
+  var RESET_LABEL = "追記分を消す";
+  var resetArmed = false, resetTimer = null;
+  document.getElementById("btnReset").addEventListener("click", function () {
+    var btn = this;
+    if (!hasAdded()) {
+      btn.textContent = "追記した内容はありません";
+      setTimeout(function () { btn.textContent = RESET_LABEL; }, 2000);
+      return;
+    }
+    if (!resetArmed) {
+      resetArmed = true;
+      btn.textContent = dbc
+        ? "もう一度押すと、全員の画面から追記分が消えます"
+        : "もう一度押すと追記分をすべて消します";
+      resetTimer = setTimeout(function () { resetArmed = false; btn.textContent = RESET_LABEL; }, 5000);
+      return;
+    }
+    clearTimeout(resetTimer);
+    resetArmed = false;
+    if (dbc) {
+      Promise.all(shared.map(function (d) { return dbc.doc("minutes/" + d.id).delete(); })).then(function () {
+        btn.textContent = "削除しました ✓";
+        setTimeout(function () { btn.textContent = RESET_LABEL; }, 2000);
+      }, function () {
+        btn.textContent = "削除できませんでした（権限がありません）";
+        setTimeout(function () { btn.textContent = RESET_LABEL; }, 2600);
+      });
+      return;
+    }
+    added = []; addedInMemory = [];
+    try { window.localStorage.removeItem(STORE_KEY); } catch (e) {}
+    render();
+    btn.textContent = "削除しました ✓";
+    setTimeout(function () { btn.textContent = RESET_LABEL; }, 2000);
+  });
+
+  /* 閲覧専用の人には、追記・削除ボタンを出さない */
+  function applyPermission() {
+    var readOnly = (canWrite === false);
+    document.getElementById("btnAdd").hidden = readOnly;
+    document.getElementById("btnReset").hidden = readOnly;
+    panel.hidden = readOnly;
+  }
+
+  render();
+
+  /* 共有保存につなぐ（つながらなくても上の表示はそのまま動く） */
+  if (window.claude && window.claude.use) {
+    Promise.all([window.claude.use("db"), window.claude.use("user")]).then(function (r) {
+      var db = r[0], user = r[1];
+      if (user && typeof user.can === "function") {
+        try { canWrite = user.can("data.write"); } catch (e) { canWrite = null; }
+      }
+      if (!db) { applyPermission(); return; }
+      dbc = db;
+      applyPermission();
+      db.collection("minutes").orderBy("at", "asc").onSnapshot(function (snap) {
+        shared = snap.docs.map(function (d) {
+          var x = d.data() || {};
+          return { id: d.id, md: String(x.md || "") };
+        });
+        render();
+      }, function () {
+        // 読み込みに失敗したら共有保存をあきらめ、ブラウザ内保存に戻す
+        dbc = null; shared = []; render();
+      });
+    }, function () {});
+  }
+})();
+</script>
+</body>
+</html>
